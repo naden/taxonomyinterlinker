@@ -1,0 +1,40 @@
+#plugin-content {
+  float: left;
+}
+
+#plugin-sidebar {  
+  float: left;
+  width: 200px;
+  
+  background-color: #fffbcc;
+  border-color: #e6db55;
+  color: #555;
+  
+  line-height: 19px;
+  padding: 5px;
+  margin-left: 10px;
+  font-size: 14px;
+  
+  border-width: 1px;
+  border-style: solid;
+  -webkit-border-bottom-right-radius: 12px;
+  -webkit-border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+#plugin-sidebar h3 {
+  text-align: center;
+}
+
+#plugin-sidebar ul li {
+  border-bottom: 1px solid #e6db55;
+  padding-top: 5px; 
+}
+#plugin-sidebar ul li.last {
+  border-bottom: 0;
+  text-align: center;
+  font-weight: bold;
+}

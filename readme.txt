@@ -1,4 +1,4 @@
-=== FeedDelay ===
+=== Taxonomy Interlinker ===
 Contributors: Naden Badalgogtapeh
 Donate link: http://www.naden.de/blog
 Tags: tag, taxonomy, link, links, tags

@@ -64,7 +64,7 @@ class TaxonomyInterlinker {
       }
     }
 
-    return sprintf('<a href="%s%s%s/">%s</a>', $url, $tag, $slug, $title);
+    return sprintf('<a href="%s%s%s">%s</a>', $url, $tag, $slug, $title);
   }  
   /**
    * parse internal link to other term pages into the term description
@@ -73,9 +73,15 @@ class TaxonomyInterlinker {
     
   	if(!empty($description)) {
     
-      $replaced = array();  
+      $replaced = array();
+
+			$current = single_tag_title('', false);
   		
   		foreach($this->getTerms() as $slug => $title) {
+				if($current == $title) {
+					continue;
+				}
+
   		  preg_match_all('/(?<!\S)' . $title . '(?![-\w])/i', $description, $matches);
   
   		  if(count($matches[0]) > 0) {		  

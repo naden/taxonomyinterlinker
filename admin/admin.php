@@ -1,7 +1,7 @@
 <div class="wrap">
 
   <h2><?php echo $this->name?> <em>v<?php echo $this->version?></em></h2>
-  
+
   <div id="plugin-content">
     
     

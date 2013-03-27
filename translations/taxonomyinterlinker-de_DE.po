@@ -1,8 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: taxonomyinterlinker\n"
-"POT-Creation-Date: 2013-03-23 21:35+0100\n"
-"PO-Revision-Date: 2013-03-23 21:39+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-27 16:59+0100\n"
+"PO-Revision-Date: 2013-03-27 16:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,17 +14,21 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../taxonomyinterlinker.php:122
+#: ../taxonomyinterlinker.php:106
 msgid "Taxonomy Interlinker"
 msgstr ""
 
-#: ../taxonomyinterlinker.php:127
+#: ../taxonomyinterlinker.php:111
 msgid "You are not allowed to access the admin area."
 msgstr "Der Zugriff auf den Administrationsbereich ist dir verboten."
 
-#: ../taxonomyinterlinker.php:132
+#: ../taxonomyinterlinker.php:117
 msgid "Failed to verify your request."
 msgstr "Die Sicherheitsprüfung deiner Anfrage ist fehlgeschlagen."
+
+#: ../taxonomyinterlinker.php:128
+msgid "Settings saved!"
+msgstr "Die Einstellungen wurden gespeichert!"
 
 #: ../admin/admin-sidebar.php:2
 msgid "Liked the plugin?"
@@ -51,8 +56,7 @@ msgstr "Alles über Wordpress"
 
 #: ../admin/admin.php:14
 msgid "Max number of links to parse into the tag description."
-msgstr ""
-"Anzahl der Links die maximal in eine Tag-Beschreibung eingefügt werden."
+msgstr "Anzahl der Links die maximal in eine Tag-Beschreibung eingefügt werden."
 
 #: ../admin/admin.php:19
 msgid "save settings"
@@ -68,3 +72,4 @@ msgstr ""
 
 #~ msgid "More stuff for"
 #~ msgstr "Mehr zu"
+

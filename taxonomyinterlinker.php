@@ -2,9 +2,9 @@
 /*
 Plugin Name: Taxonomy Interlinker
 Plugin URI: http://www.naden.de/blog/taxonomy-interlinker
-Description: This plugin places internal links in the tag descriptions to other tag pages. Your theme have to use <code>tag_description();</code> on the term pages. Read more about modifying your theme on <a href="http://www.naden.de/blog/taxonomy-interlinker">www.naden.de</a>.  
+Description: This plugin places internal links in the taxonomy term descriptions to other term pages. Your theme have to use <code>tag_description();</code> on the term pages. Read more about modifying your theme on <a href="http://www.naden.de/blog/taxonomy-interlinker">www.naden.de</a>.
 Author: Naden Badalgogtapeh
-Version: 0.1
+Version: 0.2
 Author URI: http://www.naden.de
 */
 
@@ -12,21 +12,13 @@ class TaxonomyInterlinker {
 
   var $id = 'taxonomyinterlinker';
   var $name = 'Taxonomy Interlinker';
-  var $version = '0.1';
+  var $version = '0.2';
   var $options;
   
   function __construct() {
+
     load_plugin_textdomain($this->id, false, dirname(plugin_basename(__FILE__)) . '/translations');
-    /*
-    $locale = get_locale();
 
-	  if(empty($locale)) {
-		  $locale = 'en_US';
-    }
-
-    load_textdomain($this->id, dirname(__FILE__). '/locale/'. $locale. '.mo');
-    */
-    
     $this->options = get_option($this->id);
     
     if(!$this->options) {
@@ -48,24 +40,10 @@ class TaxonomyInterlinker {
   }
   /**
    * get a link tag for the requested tag according to the permalink settings
-   */     
+   */
   function getLinkTag($slug, $title) {
-    static $url, $tag;
-    
-    if(!$url) {
-      $url = get_bloginfo('wpurl');
-    }
-    
-    if(!$tag) {
-      $tag = get_option('tag_base');
-      
-      if(empty($tag)) {
-        $tag = '/tag/';
-      }
-    }
-
-    return sprintf('<a href="%s%s%s">%s</a>', $url, $tag, $slug, $title);
-  }  
+    return sprintf('<a href="%s">%s</a>', get_term_link($slug, 'post_tag'), $title);
+  }
   /**
    * parse internal link to other term pages into the term description
    */
@@ -134,7 +112,8 @@ class TaxonomyInterlinker {
     }
     
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-      if(!wp_verify_nonce($_POST[$this->id. '-nonce'], $this->id. '-nonce')) {
+
+      if(!wp_verify_nonce($_POST[$this->id. '-nonce'], 'update_options')) {
         die('<h2>'. __('Failed to verify your request.'). '</h2>');  
       }
          
@@ -145,12 +124,14 @@ class TaxonomyInterlinker {
         );
       
         update_option($this->id, $this->options);
+
+				printf('<div id="message" class="updated"><p><strong>%s</strong></p></div>', __('Settings saved!'));
       }
     }
        
     include_once dirname(__FILE__). '/admin/admin.php';
   }
-  
+
   function deactivate() {
     global $wpdb;
     delete_option($this->id);
